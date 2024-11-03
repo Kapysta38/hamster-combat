@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    environment:
+      - DATABASE_URL=sqlite:///./click_data.db  # Путь к базе данных SQLite
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app  # Монтируем весь проект для быстрого редактирования
+    restart: always

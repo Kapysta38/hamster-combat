@@ -1,0 +1,125 @@
+/* Основной стиль страницы */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--tg-theme-bg-color, #ffffff);
+    color: var(--tg-theme-text-color, #000000);
+    user-select: none; /* Запрет выделения */
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+/* Стиль текста счётчика */
+.count-text {
+    font-size: 4em;
+    font-weight: bold;
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+/* Стили для изображения */
+.hamster-image {
+    width: 70vw;
+    max-width: 500px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+    user-select: none;
+    -webkit-user-drag: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    will-change: transform;
+    transform: translateZ(0); /* Форсируем GPU-рендеринг */
+}
+
+.hamster-image:active {
+    transform: scale(0.9);
+}
+
+/* Спиннер загрузки */
+.loading-spinner {
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    -webkit-animation: spin 1s linear infinite; /* Для Safari */
+    margin: 20px auto;
+    display: none; /* Скрыт по умолчанию */
+    will-change: transform;
+}
+
+.show-loading {
+    display: block;
+}
+
+/* Анимация для "+1" */
+.increment-animation {
+    position: absolute;
+    font-size: 2em;
+    color: var(--tg-theme-button-color, gold);
+    font-weight: bold;
+    animation: fadeOut 1s forwards;
+    -webkit-animation: fadeOut 1s forwards; /* Для Safari */
+    pointer-events: none;
+    user-select: none;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    color: gold;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+.count-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.count-text, .loading-spinner {
+    position: absolute;
+}
