@@ -3,7 +3,8 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from aiogram.utils import executor
 
 # Укажите токен вашего бота
-TOKEN = '7399005966:AAFKqW5CY2RhoCEAzTds5MemfkBpdHk-ueo'  # Замените на токен вашего бота
+# Удалил действующий токен и отключил его действие через бота отца
+TOKEN = ''  # Замените на токен вашего бота
 
 # Инициализация бота и диспетчера
 bot = Bot(token=TOKEN)
